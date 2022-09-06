@@ -27,19 +27,24 @@ class PesanController extends Controller
     {
         $cart = session("cart");
         $produk = Produk::detail_produk($id);
-        $find = array_search($produk->nama_menu, array_column($cart, 'nama_menu')) == false;
+        // $find = array_search($produk->nama_menu, array_column($cart, 'nama_menu'));
         // dd($find);
-        if (!$find) {
-            ++$cart[$produk->id]["jumlah"];
-            // dd($find);
-            session(["cart" => $cart]);
-        } else {
+        $cek = false;
+        foreach ($cart as $key => $c) {
+            if ($key == "c_" . $produk->id) {
+                ++$cart[$key]["jumlah"];
+                // dd($find);
+                session(["cart" => $cart]);
+                $cek = true;
+            }
+        }
+        if (!$cek) {
             $pesanan = [
                 "nama_menu" => $produk->nama_menu,
                 "harga" => $produk->harga,
                 "jumlah" => 1
             ];
-            $cart[$produk->id] = $pesanan;
+            $cart["c_" . $produk->id] = $pesanan;
         }
         // dd($pesanan);
 
