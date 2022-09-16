@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\NoMejaController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,29 +22,53 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
+//home
+
 
 //Kategori
-Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
-Route::post('/store', [KategoriController::class, 'store'])->name('store');
-Route::get('/showkategori/{id}', [KategoriController::class, 'show'])->name('show');
-Route::post('/update/{id}', [KategoriController::class, 'update'])->name('update');
-Route::get('/delete/{id}', [KategoriController::class, 'destroy'])->name('delete');
+Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori')->middleware('auth');
+Route::post('/kategori/store', [KategoriController::class, 'store'])->name('store')->middleware('auth');
+Route::get('/showkategori/{id}', [KategoriController::class, 'show'])->name('show')->middleware('auth');
+Route::post('/kategori/update/{id}', [KategoriController::class, 'update'])->name('update')->middleware('auth');
+Route::get('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('delete')->middleware('auth');
 
 
 //no meja
-Route::get('/nomeja', [NoMejaController::class, 'index'])->name('nomeja');
-Route::post('/insert', [NoMejaController::class, 'insert'])->name('insert');
-Route::get('/shownomeja/{id}', [NoMejaController::class, 'show'])->name('show');
-Route::post('/update/{id}', [NoMejaController::class, 'update'])->name('update');
-Route::get('/delete/{id}', [NoMejaController::class, 'destroy'])->name('delete');
+Route::get('/nomeja', [NoMejaController::class, 'index'])->name('nomeja')->middleware('auth');
+Route::post('/nomeja/insert', [NoMejaController::class, 'insert'])->name('insert')->middleware('auth');
+Route::get('/shownomeja/{id}', [NoMejaController::class, 'show'])->name('show')->middleware('auth');
+Route::post('/nomeja/update/{id}', [NoMejaController::class, 'update'])->name('update')->middleware('auth');
+Route::get('/nomeja/delete/{id}', [NoMejaController::class, 'destroy'])->name('delete')->middleware('auth');
 
 //produk
-Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
-Route::post('/store', [ProdukController::class, 'store'])->name('store');
-Route::get('/showproduk/{id}', [ProdukController::class, 'show'])->name('show');
-Route::post('/update/{id}', [ProdukController::class, 'update'])->name('update');
-Route::get('/delete/{id}', [ProdukController::class, 'destroy'])->name('delete');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk')->middleware('auth');
+Route::post('/produk/store', [ProdukController::class, 'store'])->name('store')->middleware('auth');
+Route::get('/produk/showproduk/{id}', [ProdukController::class, 'show'])->name('show')->middleware('auth');
+Route::post('/produk/update/{id}', [ProdukController::class, 'update'])->name('update')->middleware('auth');
+Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy'])->name('delete')->middleware('auth');
+
+//Transaksi
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('Transaksi')->middleware('auth');
+Route::post('/transaksi/store', [TransaksiController::class, 'store'])->name('store')->middleware('auth');
+Route::get('/transaksi/showproduk/{id}', [TransaksiController::class, 'show'])->name('show')->middleware('auth');
+Route::post('/transaksi/update/{id}', [TransaksiController::class, 'update'])->name('update')->middleware('auth');
+Route::get('/transaksi/delete/{id}', [TransaksiController::class, 'destroy'])->name('delete')->middleware('auth');
+
+//User
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::post('/user/store', [UserController::class, 'store'])->name('store');
+Route::get('/user/showproduk/{id}', [UserController::class, 'show'])->name('show');
+Route::post('/user/update/{id}', [UserController::class, 'update'])->name('update');
+Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('delete');
+
+//User login
+Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/user/login', [UserController::class, 'login'])->name('login');
+Route::post('/user/loginUser', [UserController::class, 'loginUser'])->name('loginUser');
+Route::get('/user/register', [UserController::class, 'register'])->name('register');
+Route::post('/user/registerStore', [UserController::class, 'registerStore'])->name('registerStore');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 //pesan user
@@ -49,6 +76,13 @@ Route::get('/menu', [PesanController::class, 'index'])->name('menu');
 Route::get('/tambah/{id}', [PesanController::class, 'tambah'])->name('tambah')->where('id', '[0-9]+');
 Route::get('/hapus/{id}', [PesanController::class, 'hapus'])->name('hapus')->where('id', '[0-9]+');
 Route::get('/cart', [PesanController::class, 'cart'])->name('cart');
+Route::post('/transaksi', [PesanController::class, 'transaksi'])->name('transaksi');
+Route::post('/cash', [PesanController::class, 'cash'])->name('cash');
+Route::post('/bayar/{id}', [PesanController::class, 'bayar'])->name('bayar');
+Route::get('/nota/{id}', [PesanController::class, 'nota'])->name('nota');
+
+Route::post('/plus', [PesanController::class, 'plus']);
+Route::post('/minus', [PesanController::class, 'minus']);
 
 
 //qrcode

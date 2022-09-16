@@ -1,71 +1,118 @@
 @extends('layout.usermain')
 
 @section('content')
+<div class="mobile-menu-overlay"></div>
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h3 class="text-center" style="font-weight: 700">Makanan</h3>
-        </div>
-        @foreach ( $makanan as $food)
-        <div class="col-sm-6 col-md-4 my-3">
-            <!-- link artikel -->
-            {{-- <a href="/showmenu/{{ $food->id }}" class="text-decoration-none link-dark"> --}}
-            <div class="card card-body rounded-5 h-100 border-0 shadow">
-                <div class="overflow-hidden rounded-5">
-                    <!-- gambar artikel -->
-                    <img src="{{ $food->gambar[0] }}" alt="" class="img-fluid" style="height: 100%; width: 100%">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <!-- Fade-in effect -->
+                    <div class="wrapper bg-info rounded p-2 mb-3">
+                        {{-- <h5 class="h4 text-center text-white">App Resto</h5> --}}
+                        <h4 class="h4 text-center text-white">Menu Makanan</h4>
+                    </div>
+                    <div class="row clearfix">
+                        @foreach ( $makanan as $food)
+                        <div class="col-lg-3 col-md-3 col-sm-12 mb-30">
+                            <div class="da-card">
+                                <div class="da-card-photo">
+                                    <div style="height: 170px; width: 100%; margin-left: auto; margin-right: auto;">
+                                        <img src="{{ $food->gambar[0] }}" alt="" class="img-fluid" style="width: 90%; position: relative; max-height: 220px">
+                                    </div>
+                                    <div class="da-overlay">
+                                        <div class="da-social">
+                                            <ul class="clearfix">
+                                                {{-- <li><a type="button" data-toggle="modal" data-target="#exampleModal">
+                                                        <i class="fa fa-info"></i></a></li> --}}
+                                                <li><a href="/tambah/{{$food->id}}"><i class="fa fa-check"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">{{$food->nama_menu}}</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="{{ $food->gambar[0] }}" alt="" class="img-fluid" style="width: 90%; position: relative; max-height: 220px">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="da-card-content text-center">
+                                    <h5 class="h5 mb-10">{{$food->nama_menu}}</h5>
+                                    <p class="text-info text-lg my-0 text-center mb-3" style="font-weight: 600">Rp. {{ number_format($food->harga, 0,'', '.')}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
-                <!-- judul artikel -->
-                <h6 class="my-2 text-center">{{$food->nama_menu}}</h6>
-                <!-- tanggal artikel -->
-                <p class="text-secondary small my-0 text-center mb-3">Rp. {{ number_format($food->harga, 0,'', '.')}}</p>
-                <a type="button" class="btn btn-gradient-success btn-rounded btn-fw" href="/tambah/{{$food->id}}">Pilih Menu</a>
-            </div>
-            </a>
-        </div>
-        @endforeach
-        <div class="col-12">
-            <h3 class="text-center" style="font-weight: 700">Minuman</h3>
-        </div>
-        @foreach ( $minuman as $drink)
+                <div class="col-md-12 col-sm-12">
+                    <!-- Fade-in effect -->
+                    <div class="wrapper bg-success rounded p-2 mb-3">
+                        <h4 class="h4 text-center text-white">Menu Minuman</h4>
+                    </div>
+                    <div class="row clearfix">
+                        @foreach ( $minuman as $drink)
+                        <div class="col-lg-3 col-md-3 col-sm-12 mb-30">
+                            <div class="da-card">
+                                <div class="da-card-photo">
+                                    <div style="height: 170px; width: 100%; margin-left: auto; margin-right: auto;">
+                                        <img src="{{ $drink->gambar[0] }}" alt="" class="img-fluid" style="width: 90%; position: relative; max-height: 220px">
+                                    </div>
+                                    <div class="da-overlay">
+                                        <div class="da-social">
+                                            <ul class="clearfix">
+                                                <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                        <i class="fa fa-info"></i></button></li>
+                                                <li><a href="/tambah/{{$drink->id}}"><i class="fa fa-check"></i></a></li>
+                                            </ul>
 
-        <div class="col-sm-6 col-md-4 my-3">
-            <!-- link artikel -->
-            <a href="/showmenu/{{ $drink->id }}" class="text-decoration-none link-dark" target="_blank">
-                <div class="card card-body rounded-5 h-100 border-0 shadow">
-                    <div class="overflow-hidden rounded-5">
-                        <!-- gambar artikel -->
-                        <img src="{{ $drink->gambar[0] }}" style="height: 70%; width: 80%">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ...
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="da-card-content text-center">
+                                    <h5 class="h5 mb-10">{{$drink->nama_menu}}</h5>
+                                    <p class="text-info text-lg my-0 text-center mb-3" style="font-weight: 600">Rp. {{ number_format($drink->harga, 0,'', '.')}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
-                    <!-- judul artikel -->
-                    <h6 class="my-3 text-center">{{$drink->nama_menu}}</h6>
-                    <!-- tanggal artikel -->
-                    <p class="text-secondary small my-0 text-center mb-3">Rp. {{ number_format($drink->harga, 0,'', '.')}}</p>
-                    <a type="button" class="btn btn-gradient-success btn-rounded btn-fw" href="/tambah/{{$drink->id}}">Pilih Menu</a>
                 </div>
-            </a>
+            </div>
         </div>
-        @endforeach
-        <div class="col-12">
-            <h3 class="text-center" style="font-weight: 700">Dessert</h3>
-        </div>
-        @foreach ( $dessert as $d)
-        <div class="col-sm-6 col-md-4 my-3">
-            <!-- link artikel -->
-            <a href="/showmenu/{{ $d->id }}" class="text-decoration-none link-dark" target="_blank">
-                <div class="card card-body rounded-5 h-100 border-0 shadow">
-                    <div class="overflow-hidden rounded-5">
-                        <!-- gambar artikel -->
-                        <img src="{{ $d->gambar[0] }}" alt="" class="img-fluid w-50">
-                    </div>
-                    <!-- judul artikel -->
-                    <h6 class="my-3 text-center">{{$d->nama_menu}}</h6>
-                    <!-- tanggal artikel -->
-                    <p class="text-secondary small my-0 text-center">Rp.{{ number_format($d->harga, 0,'', '.')}}</p>
-                </div>
-            </a>
-        </div>
-        @endforeach
     </div>
 </div>
 @stop

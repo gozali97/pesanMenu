@@ -4,74 +4,62 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>AW Resto</title>
+    <title>RestoApp</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ url('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{ url('assets/vendors/css/vendor.bundle.base.css')}}">
+
+    <!-- Site favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('assets/vendors/images/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('assets/vendors/images/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/vendors/images/favicon-16x16.png">
     <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ url('assets/css/style.css')}}">
-    <link href="{{ url('assets/css/sb-admin-2.min.css" rel="stylesheet')}}">
-    <link href="{{ url('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ url('assets/images/favicon.ico')}}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/DataTables/datatables.min.css')}}" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet')}}">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/styles/core.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/styles/icon-font.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/styles/style.css')}}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 </head>
-<body>
+<body class="w-full" style="background-image: url('/assets/img/bg-success.jpg')">
+    <div class="pre-loader">
+        <div class="pre-loader-box">
+            <div class="loader-logo"><img style="display: block; margin-left: auto; margin-right: auto;width: 30%;" src="{{url('assets/img/loading.gif')}}" alt=""></div>
+            <div class='loader-progress' id="progress_div">
+                <div class='bar' id='bar1'></div>
+            </div>
+            <div class='percent' data-bgcolor="#FF4A4A" id='percent1'>0%</div>
+            <div class="loading-text">
+                Loading...
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
     @yield('content')
 
 
+    @include('layout.footer')
+    <!-- main-panel ends -->
+    </div>
     <!-- page-body-wrapper ends -->
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="{{ url('assets/vendors/js/vendor.bundle.base.js')}}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="{{ url('assets/vendors/chart.js/Chart.min.js')}}"></script>
-    <script src="{{ url('assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ url('assets/js/off-canvas.js')}}"></script>
-    <script src="{{ url('assets/js/hoverable-collapse.js')}}"></script>
-    <script src="{{ url('assets/js/misc.js')}}"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="{{ url('assets/js/dashboard.js')}}"></script>
-    <script src="{{ url('assets/js/todolist.js')}}"></script>
-    <!-- End custom js for this page -->
-    <script src="{{ url('assets/js/file-upload.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ url('assets/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- js -->
+    <script src="{{ url('assets/vendors/scripts/core.js')}}"></script>
+    <script src="{{ url('assets/vendors/scripts/script.min.js')}}"></script>
+    <script src="{{ url('assets/vendors/scripts/process.js')}}"></script>
+    <script src="{{ url('assets/vendors/scripts/layout-settings.js')}}"></script>
+    <script src="{{ url('assets/src/plugins/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{ url('assets/src/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ url('assets/src/plugins/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ url('assets/src/plugins/datatables/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ url('assets/src/plugins/datatables/js/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{ url('assets/vendors/scripts/dashboard.js')}}"></script>
+</body>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ url('assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ url('assets/js/sb-admin-2.min.js')}}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ url('assets/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ url('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ url('js/demo/datatables-demo.js')}}"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-
-    </script>
 </body>
 </html>

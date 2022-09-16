@@ -1,52 +1,88 @@
-@extends('layout.head')
+@extends('layout.main')
 
 @section('content')
-
-<div class="page-header">
-    <h3 class="page-title">
-        <span class="page-title-icon bg-gradient-primary text-white me-2">
-            <i class="mdi mdi-home"></i>
-        </span> Dashboard
-    </h3>
-    <nav aria-label="breadcrumb">
-        <ul class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">
-                <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-            </li>
-        </ul>
-    </nav>
-</div>
-<div class="row">
-    <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-success card-img-holder text-white">
-            <div class="card-body">
-                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                <h4 class="font-weight-normal mb-3">Kategori <i class="mdi mdi-diamond mdi-24px float-right"></i>
-                </h4>
-                <h2 class="mb-5">{{ \App\Models\Kategori::count() }}</h2>
-                {{-- <h6 class="card-text">Increased by 5%</h6> --}}
+<!-- partial -->
+<div class="main-container">
+    <div class="pd-ltr-20">
+        <div class="card-box pd-20 height-100-p mb-30">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="{{ url('assets/vendors/images/banner-img.png')}}" alt="">
+                </div>
+                <div class="col-md-8">
+                    <h4 class="font-20 weight-500 mb-10 text-capitalize">
+                        Welcome back <div class="weight-600 font-30 text-blue">Administrator</div>
+                    </h4>
+                    <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde hic non repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure fugiat, veniam non quaerat mollitia animi error corporis.</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-danger card-img-holder text-white">
-            <div class="card-body">
-                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                <h4 class="font-weight-normal mb-3">Menu <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                </h4>
-                <h2 class="mb-5">{{ \App\Models\Produk::count() }}</h2>
-                {{-- <h6 class="card-text">Increased by 60%</h6> --}}
+        <div class="row">
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="progress-data">
+                            <div id="chart"></div>
+                        </div>
+                        <div class="widget-data">
+                            <div class="h4 mb-0">20</div>
+                            <div class="weight-600 font-14">Kategori</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="progress-data">
+                            <div id="chart2"></div>
+                        </div>
+                        <div class="widget-data">
+                            <div class="h4 mb-0">10</div>
+                            <div class="weight-600 font-14">No Meja</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="progress-data">
+                            <div id="chart3"></div>
+                        </div>
+                        <div class="widget-data">
+                            <div class="h4 mb-0">30</div>
+                            <div class="weight-600 font-14">Menu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 mb-30">
+                <div class="card-box height-100-p widget-style1">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="progress-data">
+                            <div id="chart4"></div>
+                        </div>
+                        <div class="widget-data">
+                            <div class="h4 mb-0">10</div>
+                            <div class="weight-600 font-14">User</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-info card-img-holder text-white">
-            <div class="card-body">
-                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                <h4 class="font-weight-normal mb-3">Transaksi <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-                </h4>
-                <h2 class="mb-5">{{ \App\Models\Transaksi::count() }}</h2>
-                {{-- <h6 class="card-text">Decreased by 10%</h6> --}}
+        <div class="row">
+            <div class="col-xl-8 mb-30">
+                <div class="card-box height-100-p pd-20">
+                    <h2 class="h4 mb-20">Activity</h2>
+                    <div id="chart5"></div>
+                </div>
+            </div>
+            <div class="col-xl-4 mb-30">
+                <div class="card-box height-100-p pd-20">
+                    <h2 class="h4 mb-20">Lead Target</h2>
+                    <div id="chart6"></div>
+                </div>
             </div>
         </div>
     </div>

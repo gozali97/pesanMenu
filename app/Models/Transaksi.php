@@ -9,4 +9,15 @@ class Transaksi extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+    public function details()
+    {
+        return $this->hasMany(DetailTransaksi::class, "id_transaksi", "id");
+    }
+
+    public function tracking()
+    {
+        return $this->hasMany(Tracking::class, "id", "id");
+    }
 }
