@@ -1,5 +1,5 @@
-{{-- <footer class="footer float-end">
+<footer class="footer float-end mt-5">
     <div class="footer-wrap pd-20 mb-20 card-box">
-        DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+        RestApp Copyright@2022</a>
     </div>
-</footer> --}}
+</footer>

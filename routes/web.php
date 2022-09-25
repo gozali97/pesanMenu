@@ -55,6 +55,12 @@ Route::get('/transaksi/showproduk/{id}', [TransaksiController::class, 'show'])->
 Route::post('/transaksi/update/{id}', [TransaksiController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/transaksi/delete/{id}', [TransaksiController::class, 'destroy'])->name('delete')->middleware('auth');
 
+Route::get('/transaksi/bayar/{id}', [TransaksiController::class, 'bayar'])->name('bayar')->middleware('bayar');
+Route::get('/transaksi/proses/{id}', [TransaksiController::class, 'proses'])->name('proses')->middleware('auth');
+
+//exportPDf
+Route::get('/transaksi/pdf', [TransaksiController::class, 'pdf'])->name('pdf')->middleware('auth');
+
 //User
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/user/store', [UserController::class, 'store'])->name('store');

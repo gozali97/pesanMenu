@@ -3,7 +3,7 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8">
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>RestoApp</title>
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('assets/img/logo.png')}}">
@@ -35,7 +35,7 @@
     <div class="login-header box-shadow">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <div class="brand-logo">
-                <a href="login.html">
+                <a href="/">
                     <img src="{{ url('assets/img/restoapp.png')}}" alt="">
                 </a>
             </div>
@@ -107,7 +107,7 @@
 											use code for form submit
 											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
 										-->
-                        <button type="submit" class="btn btn-lg btn-block text-white" data-bgcolor="#E94560" href="">Login</button>
+                        <button type="submit" class="btn btn-sm btn-block text-white" data-bgcolor="#E94560" href="">Login</button>
                     </div>
                     {{-- <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div> --}}
                     {{-- <div class="input-group mb-0">

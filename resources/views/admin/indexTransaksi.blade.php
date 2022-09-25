@@ -6,7 +6,7 @@
         <div class="pd-20 card-box mb-30">
             <div class="clearfix mb-20">
                 <div class="text-center">
-                    <h4 class="text-blue h4">Tabel Transaksi Menunggu Pembayaran</h4>
+                    <h4 class="h4" data-color="#16213E">Menunggu Pembayaran</h4>
                 </div>
                 <div class="pull-right">
 
@@ -37,7 +37,7 @@
                             <td>{{$t->status}}</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="/transaksi/bayar{{$t->id}}" class="btn btn-block btn-info">Bayar</a>
+                                    <a href="/transaksi/bayar/{{$t->id}}" class="btn btn-block btn-info">Bayar</a>
                                 </div>
                             </td>
                         </tr>
@@ -49,15 +49,15 @@
         <div class="pd-20 card-box mb-30">
             <div class="clearfix mb-20">
                 <div class="text-center">
-                    <h4 class="text-blue h4 text-center">Tabel Transaksi Dikonfirmasi</h4>
-
+                    <h4 class="h4 text-center" data-color="#16213E">Transaksi Dikonfirmasi</h4>
+                    <a class="btn tbn-sm btn-secondary float-left" href="/transaksi/pdf">Print</a>
                 </div>
                 <div class="pull-right">
 
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table hover multiple-select-row data-table-export nowrap">
+                <table class="table hover multiple-select-row nowrap">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -71,17 +71,27 @@
                     </thead>
                     <tbody>
                         <?php $no = 1 ?>
-                        @foreach ( $sudahBayar as $t )
+                        @foreach ( $sudahBayar as $key=>$t )
                         <tr>
                             <th scope="row">{{$no++}}</th>
                             <td>{{$t->nomeja}}</td>
                             <td>{{$t->nama_pemesan}}</td>
                             <td>{{$t->subtotal}}</td>
                             <td>{{$t->total_harga}}</td>
-                            <td>{{$t->status}}</td>
+                            <td>{{$tracking->get($key)->status}}</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="/transaksi/bayar{{$t->id}}" class="btn btn-block btn-success">Proses</a>
+                                    @switch($tracking->get($key)->status)
+                                    @case("Menunggu")
+                                    <a href="/transaksi/proses/{{$t->id}}" class="btn btn-block btn-warning">Proses</a>
+                                    @break
+                                    @case("Diproses")
+                                    <a href="/transaksi/proses/{{$t->id}}" class="btn btn-block btn-success">Disajikan</a>
+                                    @break
+                                    @case("Disajikan")
+                                    <button disabled href="#" class="btn btn-block btn-info">Selesai</button>
+                                    @break
+                                    @endswitch
                                 </div>
                             </td>
                         </tr>
@@ -90,5 +100,4 @@
                 </table>
             </div>
         </div>
-    </div>
-    @stop
+        @stop

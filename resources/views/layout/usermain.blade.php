@@ -8,9 +8,9 @@
     <!-- plugins:css -->
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('assets/vendors/images/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('assets/vendors/images/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/vendors/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('assets/img/logo.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('assets/img/logo.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/img/logo.png">
     <!-- endinject -->
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet')}}">
@@ -25,7 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 </head>
-<body class="w-full" style="background-image: url('/assets/img/bg-success.jpg')">
+<body class="w-full">
     <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo"><img style="display: block; margin-left: auto; margin-right: auto;width: 30%;" src="{{url('assets/img/loading.gif')}}" alt=""></div>

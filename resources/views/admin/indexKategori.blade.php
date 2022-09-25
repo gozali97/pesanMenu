@@ -3,7 +3,7 @@
 @section('content')
 <div class="main-container">
     <div class="pd-ltr-20">
-        <div class="col-lg-10 grid-margin stretch-card">
+        <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-header bg-gradient-warning">
                     <h2 class="d-inline">Tabel Kategori</h2>
@@ -83,7 +83,4 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-@stop
+            @stop
